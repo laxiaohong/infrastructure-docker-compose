@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  neo4j:
+    image: neo4j:3.5.8
+    container_name: 'neo4j_3.5.8'
+    privileged: true
+    restart: always
+
+    environment:
+      # 设置用户名和密码
+      - NEO4J_AUTH=neo4j/neo4j123
+
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+
+    volumes:
+      - "./data:/var/lib/neo4j/data"
+      - "./logs:/var/lib/neo4j/logs"
