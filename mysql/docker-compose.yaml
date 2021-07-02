@@ -1,0 +1,19 @@
+version: '3'
+services:
+  # mysql 数据库
+  humongous_mysql_8_x:
+    image: 'mysql:8.0'
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+
+    # 端口映射
+    ports:
+      - 33061:3306
+    environment:
+      # 设置数据库密码
+      MYSQL_ROOT_PASSWORD: '*#123456'
+      # 初始化数据库
+      MYSQL_DATABASE: "kratos_blog"
+      # 挂载数据
+    volumes:
+      - "./data:/var/lib/mysql"
