@@ -8,4 +8,7 @@ docker run -d -e COLLECTOR_ZIPKIN_HTTP_PORT=9411 \
   -p 14268:14268 \
   -p 14269:14269 \
   -p 9411:9411 \
+  --restart=always \
   jaegertracing/all-in-one:latest
+
+# 启动 docker
