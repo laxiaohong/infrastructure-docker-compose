@@ -1,0 +1,32 @@
+# docker-compose 的版本
+version: '3.1'
+services:
+
+  etcd:
+    image: "docker.io/bitnami/etcd:3"
+    restart: always
+#    command: [
+#        "etcd",
+#        "--name=etcd0",
+#        "--advertise-client-urls=http://0.0.0.0:2379",
+#        "--listen-client-urls=http://0.0.0.0:2379",
+#        "--initial-advertise-peer-urls=http://etcd0:2380",
+#        "--listen-peer-urls=http://0.0.0.0:2380",
+#        "--initial-cluster-state=new"
+#    ]
+
+    # 报错信息
+    # etcd_1  | etcd 04:06:50.10 ERROR ==>
+    # The ETCD_ROOT_PASSWORD environment variable is empty or not set.
+    # Set the environment variable ALLOW_NONE_AUTHENTICATION=yes to allow a blank password.
+    # This is only recommended for development environments.
+
+    environment:
+      ETCDCTL_API: "3"
+      ALLOW_NONE_AUTHENTICATION: "yes"
+      # 设置 root 密码
+    ports:
+      - 2379:2379
+      - 2380:2380
+    volumes:
+      - "./data/etcd0:/data.etcd"
