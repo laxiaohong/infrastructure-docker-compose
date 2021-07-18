@@ -4,3 +4,6 @@
 */data/
 */logs/
 */log/
+redis/redis-server
+redis/data
+redis/dir
