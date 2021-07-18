@@ -16,4 +16,9 @@ services:
       # 配置文件
       - "./redis.conf:/usr/local/etc/redis/redis.conf"
       # 服务器日志文件同步
-      - "./log/redis-server.log:/var/log/redis/redis-server.log"
+      # - "./redis-server:/var/log/redis/redis-server.log"
+      - "./redis-server:/var/log/redis"
+      - "./dir:/var/lib/redis"
+
+    # 容器启动命令
+    command: "redis-server /usr/local/etc/redis/redis.conf"
