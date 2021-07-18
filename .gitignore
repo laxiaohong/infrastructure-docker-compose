@@ -7,3 +7,4 @@
 redis/redis-server
 redis/data
 redis/dir
+etcd/data
