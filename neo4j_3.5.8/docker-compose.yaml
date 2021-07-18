@@ -9,6 +9,8 @@ services:
 
     environment:
       # 设置用户名和密码
+      # 用户名: neo4j
+      # 密码:   neo4j123
       - NEO4J_AUTH=neo4j/neo4j123
 
     ports:
